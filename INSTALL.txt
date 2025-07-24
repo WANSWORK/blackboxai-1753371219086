@@ -1,0 +1,115 @@
+================================================================================
+DAILY CHICKEN - WEB CASHIER SYSTEM
+Installation Guide for cPanel Hosting
+================================================================================
+
+📋 QUICK INSTALLATION STEPS:
+
+1. UPLOAD FILES
+   - Extract daily_chicken_web_cashier.zip
+   - Upload all files to your cPanel public_html directory
+   - Maintain the folder structure
+
+2. CREATE DATABASE
+   - Login to cPanel > MySQL Databases
+   - Create new database: daily_chicken
+   - Create MySQL user with full privileges
+   - Note down: database name, username, password
+
+3. IMPORT DATABASE
+   - Go to cPanel > phpMyAdmin
+   - Select your database
+   - Import > Choose file: daily_chicken.sql
+   - Click "Go" to import
+
+4. CONFIGURE DATABASE CONNECTION
+   - Edit file: config/db.php
+   - Update these lines:
+     define('DB_HOST', 'localhost');
+     define('DB_NAME', 'your_database_name');
+     define('DB_USER', 'your_username');
+     define('DB_PASS', 'your_password');
+
+5. SET FOLDER PERMISSIONS
+   - Set permissions 755 for these folders:
+     uploads/
+     uploads/logo/
+     uploads/menu/
+     uploads/promosi/
+     pdf/
+
+6. ACCESS YOUR APPLICATION
+   - Open: http://yourdomain.com
+   - Default login:
+     Username: admin
+     Password: admin123
+
+7. FIRST TIME SETUP
+   - Change admin password immediately
+   - Upload your store logo (300x300px)
+   - Create menu categories
+   - Add menu items with prices
+   - Create kasir and marketing users
+
+================================================================================
+🎯 FEATURES OVERVIEW:
+
+ADMIN PANEL (admin/admin123):
+- Dashboard with sales statistics
+- Logo management (300x300px)
+- Category & menu management
+- Stock control with alerts
+- User management (roles)
+- Sales reports & analytics
+
+KASIR PANEL:
+- Modern POS interface
+- Transaction processing
+- PDF receipt generation
+- WhatsApp integration
+- Daily sales recap
+
+MARKETING PANEL:
+- Content creation (text/image/video)
+- Promotional templates
+- Social media sharing
+- Content analytics
+
+================================================================================
+🛠️ TECHNICAL REQUIREMENTS:
+
+- PHP 7.4 or higher
+- MySQL 5.7 or higher
+- Apache web server
+- PHP Extensions: PDO, GD, FileInfo
+- Disk space: 100MB minimum
+
+================================================================================
+🔧 TROUBLESHOOTING:
+
+DATABASE CONNECTION ERROR:
+- Verify database credentials in config/db.php
+- Ensure database exists and user has privileges
+
+FILE UPLOAD ISSUES:
+- Check folder permissions (755)
+- Verify PHP upload limits in cPanel
+
+BLANK PAGES:
+- Enable PHP error reporting
+- Check error logs in cPanel
+
+================================================================================
+📞 SUPPORT:
+
+For technical support or customization:
+- Check README.md for detailed documentation
+- Review demo.html for feature showcase
+- Ensure all files are uploaded correctly
+
+================================================================================
+🎉 ENJOY YOUR NEW CASHIER SYSTEM!
+
+Daily Chicken Web Cashier System v1.0
+Created with ❤️ for Indonesian food businesses
+================================================================================
