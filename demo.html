@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Chicken - Demo Sistem Kasir Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-title">Daily Chicken</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#admin" class="nav-link">Admin</a>
+                <a href="#kasir" class="nav-link">Kasir</a>
+                <a href="#marketing" class="nav-link">Marketing</a>
+                
+                <div class="nav-user">
+                    <span class="user-info">Demo User (Admin)</span>
+                    <a href="#" class="nav-link logout-btn">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="main-content">
+        <!-- Hero Section -->
+        <div class="card">
+            <div style="text-align: center; padding: 3rem;">
+                <h1 style="color: #007bff; margin-bottom: 1rem; font-size: 2.5rem;">
+                    🍗 Daily Chicken
+                </h1>
+                <h2 style="color: #6c757d; margin-bottom: 2rem;">
+                    Sistem Kasir Web Berbasis PHP + MySQL
+                </h2>
+                <p style="color: #6c757d; font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem;">
+                    Aplikasi kasir lengkap untuk usaha makanan dengan fitur admin, kasir, dan marketing. 
+                    Responsive design, installable di cPanel, dan siap pakai!
+                </p>
+                
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <button onclick="showSection('admin')" class="btn btn-primary btn-large">
+                        👑 Panel Admin
+                    </button>
+                    <button onclick="showSection('kasir')" class="btn btn-success btn-large">
+                        💰 Panel Kasir
+                    </button>
+                    <button onclick="showSection('marketing')" class="btn btn-warning btn-large">
+                        📢 Panel Marketing
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Features Overview -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Fitur Utama</h2>
+                <p class="card-subtitle">Semua yang Anda butuhkan untuk mengelola bisnis makanan</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div style="text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 15px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">👑</div>
+                    <h3 style="color: #007bff; margin-bottom: 1rem;">Panel Admin</h3>
+                    <ul style="text-align: left; color: #6c757d; line-height: 1.8;">
+                        <li>Kelola logo toko</li>
+                        <li>Manajemen kategori & menu</li>
+                        <li>Kontrol stok bahan baku</li>
+                        <li>User management</li>
+                        <li>Laporan & analytics</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 15px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💰</div>
+                    <h3 style="color: #28a745; margin-bottom: 1rem;">Panel Kasir</h3>
+                    <ul style="text-align: left; color: #6c757d; line-height: 1.8;">
+                        <li>POS system modern</li>
+                        <li>Cetak struk PDF</li>
+                        <li>WhatsApp integration</li>
+                        <li>Rekap harian</li>
+                        <li>Touch-friendly UI</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 15px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📢</div>
+                    <h3 style="color: #ffc107; margin-bottom: 1rem;">Panel Marketing</h3>
+                    <ul style="text-align: left; color: #6c757d; line-height: 1.8;">
+                        <li>Upload konten promosi</li>
+                        <li>Gambar & video support</li>
+                        <li>Template siap pakai</li>
+                        <li>Social media sharing</li>
+                        <li>Analytics konten</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Demo Sections -->
+        <div id="admin-section" class="demo-section" style="display: none;">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">👑 Demo Panel Admin</h2>
+                    <p class="card-subtitle">Kelola semua aspek bisnis dari satu dashboard</p>
+                </div>
+                
+                <!-- Admin Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card primary">
+                        <div class="stat-number">156</div>
+                        <div class="stat-label">Transaksi Hari Ini</div>
+                        <div style="margin-top: 0.5rem; font-size: 1.1rem;">Rp 2.340.000</div>
+                    </div>
+                    
+                    <div class="stat-card success">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Menu Aktif</div>
+                    </div>
+                    
+                    <div class="stat-card warning">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Stok Rendah</div>
+                    </div>
+                    
+                    <div class="stat-card danger">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Total User</div>
+                    </div>
+                </div>
+                
+                <!-- Admin Actions -->
+                <div class="grid grid-3">
+                    <div class="card">
+                        <h3 style="color: #007bff; margin-bottom: 1rem;">🏪 Kelola Logo</h3>
+                        <p style="color: #6c757d; margin-bottom: 1rem;">Upload logo toko (300x300px) yang akan muncul di navbar, struk, dan login page.</p>
+                        <button class="btn btn-primary">Upload Logo</button>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="color: #007bff; margin-bottom: 1rem;">🍽️ Kelola Menu</h3>
+                        <p style="color: #6c757d; margin-bottom: 1rem;">CRUD menu makanan dengan kategori, harga, gambar, dan status aktif/nonaktif.</p>
+                        <button class="btn btn-success">Kelola Menu</button>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="color: #007bff; margin-bottom: 1rem;">📊 Laporan</h3>
+                        <p style="color: #6c757d; margin-bottom: 1rem;">Grafik penjualan, menu terlaris, dan export laporan ke CSV/Excel.</p>
+                        <button class="btn btn-warning">Lihat Laporan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="kasir-section" class="demo-section" style="display: none;">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">💰 Demo Panel Kasir</h2>
+                    <p class="card-subtitle">POS system modern untuk transaksi cepat</p>
+                </div>
+                
+                <!-- Kasir Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card primary">
+                        <div class="stat-number">42</div>
+                        <div class="stat-label">Transaksi Hari Ini</div>
+                        <div style="margin-top: 0.5rem; font-size: 1.1rem;">Rp 630.000</div>
+                    </div>
+                    
+                    <div class="stat-card success">
+                        <div class="stat-number">Rp 15.000</div>
+                        <div class="stat-label">Rata-rata per Transaksi</div>
+                    </div>
+                    
+                    <div class="stat-card warning">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Menu Tersedia</div>
+                    </div>
+                    
+                    <div class="stat-card danger">
+                        <div class="stat-number">89%</div>
+                        <div class="stat-label">Target Harian</div>
+                    </div>
+                </div>
+                
+                <!-- Demo Transaction -->
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3 style="color: #007bff; margin-bottom: 1rem;">🛒 Pilih Menu</h3>
+                        
+                        <div class="menu-grid">
+                            <div class="menu-item selected" data-price="15000">
+                                <div class="menu-item-image" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 2rem;">🍗</div>
+                                <div class="menu-item-content">
+                                    <div class="menu-item-name">Pecel Ayam</div>
+                                    <div class="menu-item-price">Rp 15.000</div>
+                                    <div class="menu-item-quantity">
+                                        <div class="quantity-controls">
+                                            <button class="quantity-btn">-</button>
+                                            <input type="number" class="quantity-input" value="2" min="0">
+                                            <button class="quantity-btn">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item selected" data-price="5000">
+                                <div class="menu-item-image" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 2rem;">🥤</div>
+                                <div class="menu-item-content">
+                                    <div class="menu-item-name">Es Teh Manis</div>
+                                    <div class="menu-item-price">Rp 5.000</div>
+                                    <div class="menu-item-quantity">
+                                        <div class="quantity-controls">
+                                            <button class="quantity-btn">-</button>
+                                            <input type="number" class="quantity-input" value="2" min="0">
+                                            <button class="quantity-btn">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="color: #007bff; margin-bottom: 1rem;">💳 Total Pembayaran</h3>
+                        
+                        <div style="background: #f8f9fa; border-radius: 10px; padding: 2rem; text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">💰</div>
+                            <div style="font-size: 2rem; font-weight: bold; color: #28a745; margin-bottom: 1rem;">
+                                Rp 40.000
+                            </div>
+                            
+                            <div style="text-align: left; margin-bottom: 2rem;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span>Pecel Ayam x2:</span>
+                                    <span>Rp 30.000</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Es Teh Manis x2:</span>
+                                    <span>Rp 10.000</span>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-success btn-large w-100">
+                                🛒 Proses Transaksi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Receipt Demo -->
+                <div class="card">
+                    <h3 style="color: #007bff; margin-bottom: 1rem;">🧾 Preview Struk</h3>
+                    
+                    <div style="background: #f8f9fa; border-radius: 10px; padding: 2rem; max-width: 350px; margin: 0 auto; font-family: 'Courier New', monospace; border: 2px dashed #dee2e6;">
+                        <div style="text-align: center; margin-bottom: 1rem; border-bottom: 1px dashed #000; padding-bottom: 1rem;">
+                            <h3 style="margin: 0.5rem 0;">DAILY CHICKEN</h3>
+                            <div style="font-size: 0.9rem; color: #6c757d;">
+                                <div>Jl. Contoh No. 123</div>
+                                <div>08123456789</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem; font-size: 0.9rem;">
+                            <div>No. Struk: #001</div>
+                            <div>Tanggal: 24/07/2025 15:20</div>
+                            <div>Kasir: demo_kasir</div>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Pecel Ayam x2</span>
+                                <span>30.000</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Es Teh Manis x2</span>
+                                <span>10.000</span>
+                            </div>
+                        </div>
+                        
+                        <div style="border-top: 1px dashed #000; padding-top: 1rem;">
+                            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                                <span>TOTAL:</span>
+                                <span>Rp 40.000</span>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 1rem; border-top: 1px dashed #000; padding-top: 1rem; font-size: 0.8rem;">
+                            <div>Terima kasih atas kunjungan Anda!</div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="btn btn-primary" style="margin-right: 1rem;">🖨️ Cetak PDF</button>
+                        <button class="btn btn-success">📱 Kirim WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="marketing-section" class="demo-section" style="display: none;">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">📢 Demo Panel Marketing</h2>
+                    <p class="card-subtitle">Kelola konten promosi untuk media sosial</p>
+                </div>
+                
+                <!-- Marketing Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card primary">
+                        <div class="stat-number">28</div>
+                        <div class="stat-label">Total Konten</div>
+                    </div>
+                    
+                    <div class="stat-card success">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Dengan Gambar</div>
+                    </div>
+                    
+                    <div class="stat-card warning">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Dengan Video</div>
+                    </div>
+                    
+                    <div class="stat-card danger">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Upload Hari Ini</div>
+                    </div>
+                </div>
+                
+                <!-- Content Creation -->
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3 style="color: #007bff; margin-bottom: 1rem;">✍️ Buat Konten Promosi</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Konten Teks (Max 500 karakter)</label>
+                            <textarea class="form-control" rows="4" placeholder="🎉 PROMO SPESIAL Daily Chicken! 🎉
+
+Dapatkan diskon 20% untuk semua menu favorit!
+Berlaku hari ini sampai besok.
+
+Jangan sampai terlewat! 
+Order sekarang: 08123456789
+
+#PromoSpesial #DailyChicken #Diskon #MakananEnak"></textarea>
+                            <div style="text-align: right; margin-top: 0.5rem; font-size: 0.875rem; color: #6c757d;">
+                                <span>245/500</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Upload Gambar</label>
+                            <input type="file" class="form-control" accept=".jpg,.jpeg,.png">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Upload Video (Max 1 menit)</label>
+                            <input type="file" class="form-control" accept=".mp4,.avi,.mov">
+                        </div>
+                        
+                        <button class="btn btn-primary btn-large">📤 Upload Konten</button>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="color: #007bff; margin-bottom: 1rem;">📱 Preview & Share</h3>
+                        
+                        <div style="background: #f8f9fa; border-radius: 10px; padding: 2rem; margin-bottom: 2rem;">
+                            <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                <div style="font-weight: bold; margin-bottom: 1rem; color: #007bff;">Daily Chicken</div>
+                                <p style="margin-bottom: 1rem; line-height: 1.5;">
+                                    🎉 PROMO SPESIAL Daily Chicken! 🎉<br><br>
+                                    Dapatkan diskon 20% untuk semua menu favorit!<br>
+                                    Berlaku hari ini sampai besok.<br><br>
+                                    Jangan sampai terlewat!<br>
+                                    Order sekarang: 08123456789
+                                </p>
+                                <div style="color: #007bff; font-size: 0.9rem;">
+                                    #PromoSpesial #DailyChicken #Diskon #MakananEnak
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h4 style="color: #007bff; margin-bottom: 1rem;">Auto-Share ke Media Sosial:</h4>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <button class="btn btn-warning btn-large">📷 Share ke Instagram</button>
+                            <button class="btn btn-primary btn-large">📘 Share ke Facebook</button>
+                            <button class="btn btn-danger btn-large">🎵 Share ke TikTok</button>
+                            <button class="btn btn-success btn-large">📱 Share ke WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content History -->
+                <div class="card">
+                    <h3 style="color: #007bff; margin-bottom: 1rem;">📋 Riwayat Konten Promosi</h3>
+                    
+                    <div class="grid grid-2">
+                        <div style="background: #f8f9fa; border-radius: 10px; padding: 1.5rem; border: 1px solid #dee2e6;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <div style="font-size: 0.9rem; color: #6c757d;">23/07/2025 14:30</div>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <span style="background: #28a745; color: white; padding: 0.125rem 0.5rem; border-radius: 10px; font-size: 0.75rem;">📷</span>
+                                </div>
+                            </div>
+                            
+                            <p style="margin-bottom: 1rem; line-height: 1.5;">
+                                🍗 MENU BARU di Daily Chicken! 🍗<br><br>
+                                Coba sensasi rasa baru yang menggugah selera!<br>
+                                Menu spesial dengan resep rahasia kami.
+                            </p>
+                            
+                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <button class="btn btn-success" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">📱 WhatsApp</button>
+                                <button class="btn btn-primary" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">📋 Copy</button>
+                                <button class="btn btn-warning" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">💾 Download</button>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f8f9fa; border-radius: 10px; padding: 1.5rem; border: 1px solid #dee2e6;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <div style="font-size: 0.9rem; color: #6c757d;">22/07/2025 10:15</div>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <span style="background: #dc3545; color: white; padding: 0.125rem 0.5rem; border-radius: 10px; font-size: 0.75rem;">🎥</span>
+                                </div>
+                            </div>
+                            
+                            <p style="margin-bottom: 1rem; line-height: 1.5;">
+                                💰 DISKON BESAR-BESARAN! 💰<br><br>
+                                Daily Chicken memberikan diskon hingga 30%!<br>
+                                Untuk pembelian minimal 2 porsi.
+                            </p>
+                            
+                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <button class="btn btn-success" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">📱 WhatsApp</button>
+                                <button class="btn btn-primary" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">📋 Copy</button>
+                                <button class="btn btn-warning" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">💾 Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technical Specs -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">🛠️ Spesifikasi Teknis</h2>
+                <p class="card-subtitle">Detail implementasi dan fitur</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div>
+                    <h4 style="color: #007bff; margin-bottom: 1rem;">💻 Teknologi</h4>
+                    <ul style="color: #6c757d; line-height: 1.8;">
+                        <li><strong>Backend:</strong> PHP Native (tanpa framework)</li>
+                        <li><strong>Database:</strong> MySQL dengan PDO</li>
+                        <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript</li>
+                        <li><strong>Styling:</strong> Custom CSS (responsive)</li>
+                        <li><strong>Upload:</strong> Support gambar & video</li>
+                        <li><strong>PDF:</strong> Generate struk otomatis</li>
+                        <li><strong>WhatsApp:</strong> Integration via URL scheme</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="color: #007bff; margin-bottom: 1rem;">🚀 Fitur Unggulan</h4>
+                    <ul style="color: #6c757d; line-height: 1.8;">
+                        <li><strong>Role-based Access:</strong> Admin, Kasir, Marketing</li>
+                        <li><strong>Responsive Design:</strong> Mobile & desktop friendly</li>
+                        <li><strong>Real-time Updates:</strong> Stock & transaction sync</li>
+                        <li><strong>Security:</strong> Input validation & XSS protection</li>
+                        <li><strong>File Management:</strong> Upload dengan validasi</li>
+                        <li><strong>Reporting:</strong> Export CSV/Excel</li>
+                        <li><strong>cPanel Ready:</strong> Easy deployment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Installation Guide -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">📋 Panduan Instalasi</h2>
+                <p class="card-subtitle">Langkah-langkah setup di cPanel</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div>
+                    <h4 style="color: #28a745; margin-bottom: 1rem;">✅ Langkah Instalasi</h4>
+                    <ol style="color: #6c757d; line-height: 1.8;">
+                        <li>Upload semua file ke public_html</li>
+                        <li>Buat database MySQL baru</li>
+                        <li>Import file daily_chicken.sql</li>
+                        <li>Edit config/db.php sesuai database</li>
+                        <li>Set permission folder uploads/ (755)</li>
+                        <li>Akses aplikasi via browser</li>
+                        <li>Login dengan admin/admin123</li>
+                    </ol>
+                </div>
+                
+                <div>
+                    <h4 style="color: #007bff; margin-bottom: 1rem;">🔐 Login Default</h4>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <strong>Admin Account:</strong><br>
+                        Username: <code>admin</code><br>
+                        Password: <code>admin123</code>
+                    </div>
+                    
+                    <h4 style="color: #dc3545; margin-bottom: 1rem;">⚠️ Setelah Login Pertama</h4>
+                    <ul style="color: #6c757d; line-height: 1.6;">
+                        <li>Ganti password default</li>
+                        <li>Upload logo toko</li>
+                        <li>Setup kategori & menu</li>
+                        <li>Buat user kasir & marketing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Daily Chicken. All rights reserved.</p>
+            <p>Sistem Kasir Web - Dibuat dengan ❤️ untuk kemudahan bisnis Anda</p>
+        </div>
+    </footer>
+    
+    <script>
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.demo-section').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Show selected section
+            document.getElementById(section + '-section').style.display = 'block';
+            
+            // Scroll to section
+            document.getElementById(section + '-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Auto-update time
+        setInterval(function() {
+            const now = new Date();
+            const timeElements = document.querySelectorAll('.current-time');
+            timeElements.forEach(el => {
+                el.textContent = now.toLocaleTimeString('id-ID');
+            });
+        }, 1000);
+    </script>
+</body>
+</html>
